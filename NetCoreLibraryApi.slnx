@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CoreLibraryApiTesting/CoreLibraryApiTesting.csproj" Id="7cd4c480-ca48-4609-911f-5e8f8c50ab7a" />
+  <Project Path="NetCoreLibraryApi/NetCoreLibraryApi.csproj" />
+</Solution>
