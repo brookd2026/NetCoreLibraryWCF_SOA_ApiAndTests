@@ -23,6 +23,9 @@ namespace BookLibrary_WCFService
 
         [OperationContract]
         Task<bool> UpdateBookAsync(BookDataContract book);
+
+        [OperationContract]
+        Task<Stream> DownloadBookFileAsync(int bookId);
     }
 
     [DataContract]

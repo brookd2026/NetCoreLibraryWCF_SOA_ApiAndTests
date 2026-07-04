@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add this line to make HttpContext injectible:
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LibraryConnection")));
 
@@ -30,8 +33,22 @@ app.UseServiceModel(serviceBuilder =>
     // 5. Add your service and map it to an endpoint
     serviceBuilder.AddService<LibraryService>();
 
+    // Configure a BasicHttpBinding optimized for large streaming data
+    var streamingBinding = new CoreWCF.BasicHttpBinding
+    {
+        // StreamedResponse allows streaming from Server -> Client chunk-by-chunk
+        TransferMode = CoreWCF.TransferMode.StreamedResponse,
+
+        // Increase the maximum size allowed to pass (e.g., 500 MB)
+        MaxReceivedMessageSize = 400000000,
+
+        // Give large files adequate time to transfer over slower network speeds
+        SendTimeout = System.TimeSpan.FromMinutes(15),
+        ReceiveTimeout = System.TimeSpan.FromMinutes(15)
+    };
+
     serviceBuilder.AddServiceEndpoint<LibraryService, ILibraryService>(
-        new CoreWCF.BasicHttpBinding(),
+        new CoreWCF.BasicHttpBinding(), //streamBinding
         "/Services/LibraryService.svc"
     );
 });
