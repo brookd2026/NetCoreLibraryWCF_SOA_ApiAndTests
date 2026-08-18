@@ -12,6 +12,9 @@ namespace BookLibrary_WCFService
     public interface ILibraryService
     {
         [OperationContract]
+        Task<List<BookDataContract>> GetAllBooksAsync();
+
+        [OperationContract]
         [FaultContract(typeof(BookFault))]
         Task<BookDataContract> GetBookByIdAsync(int id);
 

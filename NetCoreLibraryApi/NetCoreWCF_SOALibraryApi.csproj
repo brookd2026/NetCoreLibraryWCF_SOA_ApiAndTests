@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="corewcf.http" Version="1.9.1" />
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="10.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.*" />

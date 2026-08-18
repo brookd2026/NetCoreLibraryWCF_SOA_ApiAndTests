@@ -1,6 +1,4 @@
 <Solution>
-  <Project Path="CancellationToken/CancellationToken.csproj" Id="bec4b648-960e-4f69-a099-14ba7fede330" />
-  <Project Path="CoreLibraryApiTesting/CoreLibraryApiTesting.csproj" Id="7cd4c480-ca48-4609-911f-5e8f8c50ab7a" />
-  <Project Path="Delegate/Delegate.csproj" Id="aea5e6ca-ed10-4a59-ae28-c1e702b3c0ba" />
-  <Project Path="NetCoreLibraryApi/NetCoreLibraryApi.csproj" />
+  <Project Path="CoreLibraryApiTesting/CoreLibraryWCF_SOAApiTesting.csproj" Id="7cd4c480-ca48-4609-911f-5e8f8c50ab7a" />
+  <Project Path="NetCoreLibraryApi/NetCoreWCF_SOALibraryApi.csproj" />
 </Solution>

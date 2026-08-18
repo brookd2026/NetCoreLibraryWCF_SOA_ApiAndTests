@@ -21,7 +21,16 @@ builder.Services.AddServiceModelMetadata();
 // 3. Register your actual service implementation as a singleton or transient
 builder.Services.AddTransient<LibraryService>();
 
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    //app.MapOpenApi();
+    app.UseSwagger();   // Serves the documentation as a JSON endpoint
+    app.UseSwaggerUI(); // Serves the interactive web UI
+}
 
 // 4. REQUIRED: Configure the metadata behavior to allow HTTP/HTTPS GET requests
 var serviceMetadataBehavior = app.Services.GetRequiredService<ServiceMetadataBehavior>();

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetCoreLibraryApi\NetCoreLibraryApi.csproj" />
+    <ProjectReference Include="..\NetCoreLibraryApi\NetCoreWCF_SOALibraryApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>
